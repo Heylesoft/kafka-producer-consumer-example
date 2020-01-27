@@ -1,4 +1,9 @@
-import Kafka, { Producer, KafkaClient, CreateTopicRequest, CreateTopicResponse } from 'kafka-node';
+import { 
+  Producer, 
+  KafkaClient, 
+  CreateTopicRequest, 
+  CreateTopicResponse
+} from 'kafka-node';
 
 class Main {
   private producer:Producer;
@@ -6,7 +11,7 @@ class Main {
 
   constructor(){
     console.log('Hello API');
-    this.client = new KafkaClient({kafkaHost: 'localhost:9092'});
+    this.client = new KafkaClient({kafkaHost: 'localhost:29092'});
     this.producer = new Producer(this.client);
   }
 
@@ -14,13 +19,13 @@ class Main {
     const topicsToCreate:CreateTopicRequest[] = [
       {
         topic: 'topic1',
-        partitions: 1,
-        replicationFactor: 2
+        partitions: 3,
+        replicationFactor: 1
       },
       {
         topic: 'topic2',
-        partitions: 2,
-        replicationFactor: 2
+        partitions: 3,
+        replicationFactor: 1
       },
     ];
 
